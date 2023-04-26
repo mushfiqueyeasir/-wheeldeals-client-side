@@ -1,0 +1,48 @@
+.productCard{
+    cursor: pointer;
+
+}
+.productCard:hover{
+    background-color: #EBA83A;
+    color: white; 
+}
+
+.productCard:hover .badge{
+    background-color: white;
+    color: black; 
+}
+
+.productCard:hover .detailButton{
+    border-color: #313641;
+    color: black; 
+}
+
+
+.productCardReverse{
+    background-color: #EBA83A;
+    color: white; 
+    cursor: pointer;
+}
+.productCardReverse .badge{
+    background-color: white;
+    color: black; 
+}
+.productCardReverse .detailButton{
+    border-color: #313641;
+    color: black; 
+}
+
+.productCardReverse:hover{
+    background-color: white;
+    color: black; 
+}
+
+.productCardReverse:hover .badge{
+    background-color: #EBA83A;
+    color: white; 
+}
+
+.productCardReverse:hover .detailButton{
+    border-color: #EBA83A;
+    color: #EBA83A; 
+}

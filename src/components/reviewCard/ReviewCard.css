@@ -1,0 +1,40 @@
+.reviewCard{
+    background-color: black;
+    color:white
+}
+.reviewCard:hover{
+    background-color: white;
+    color:black
+}
+
+.reviewCardReverse{
+    background-color: white;
+    color:black
+}
+.reviewCardReverse:hover{
+    background-color: black;
+    color:white
+}
+
+
+.rating {
+    position: relative;
+    display: inline-flex;
+}
+.rating :where(input) {
+    cursor: pointer;
+    border-radius: 0px;
+    animation: rating-pop var(--animation-input, 0.25s) ease-out;
+    height: 1.5rem/* 24px */;
+    width: 1.5rem/* 24px */;
+    background-color: hsl(var(--bc) / var(--tw-bg-opacity));
+    --tw-bg-opacity: 1;
+}
+
+.rating div {
+    height: 1.2rem/* 24px */;
+    width: 1.2rem/* 24px */;
+}
+.rating-half.rating-md div:not(.rating-hidden) {
+    width: 0.75rem/* 12px */;
+}
