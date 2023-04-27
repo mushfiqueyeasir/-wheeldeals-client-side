@@ -1,7 +1,7 @@
 import React from "react";
 import "./ReviewCard.css";
 
-const ReviewCard = ({ index }) => {
+const ReviewCard = ({ index, review, name }) => {
   let rating = new Array(5).fill(1);
   return (
     <article
@@ -9,11 +9,7 @@ const ReviewCard = ({ index }) => {
         index === 0 ? "reviewCardReverse" : "reviewCard"
       }`}
     >
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation.
-      </p>
+      <p>{review}</p>
       <div className="rating py-4">
         {rating.map((item, index) => (
           <div
@@ -33,7 +29,7 @@ const ReviewCard = ({ index }) => {
           />
         </div>
         <div>
-          <h1 className="font-bold text-xl">Jhon Doe</h1>
+          <h1 className="font-bold text-xl">{name}</h1>
           <h2 className="font-semibold text-xl text-[#EBA83A]">Customer</h2>
         </div>
       </div>

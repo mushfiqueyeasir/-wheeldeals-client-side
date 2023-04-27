@@ -44,7 +44,7 @@ const ProductManageCard = ({ product }) => {
         <BsPen />
       </Link>
 
-      <div className="absolute bottom-2 left-2 z-50">
+      <div className="absolute bottom-0  p-3 z-50 bg-[#000000ad] w-full">
         <h2 className="font-[900] text-2xl  capitalize text-white">
           {productName}
         </h2>

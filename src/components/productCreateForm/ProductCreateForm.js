@@ -62,6 +62,7 @@ const ProductCreateForm = () => {
       loading: setPostLoading,
       imageThumbReset: setProductImage,
       fileNameReset: setFileName,
+      message: "Product Added!",
     });
   };
 

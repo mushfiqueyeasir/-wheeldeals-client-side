@@ -67,12 +67,12 @@ const ProductDetailPage = () => {
   };
   return (
     <div className="container lg:w-[50%] mx-auto py-10 px-2">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-        <div className="w-[20rem] h-[30rem]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className=" h-[30rem]">
           <img
             src={productImage}
             alt=""
-            className="object-cover w-[20rem] h-[30rem]"
+            className="object-contain  h-[30rem]"
           />
         </div>
         <div className="flex flex-col justify-between gap-y-4">
@@ -87,7 +87,7 @@ const ProductDetailPage = () => {
           </div>
           <div className="flex flex-col gap-y-2">
             <div className="font-semibold text-base">
-              <p>Price: ${productPrice}</p>
+              <p>Price: ৳{productPrice}</p>
               <p>Stock: {productStock}</p>
             </div>
             <div>

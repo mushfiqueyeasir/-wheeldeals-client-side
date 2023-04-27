@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ProductCard.css";
 import { Link } from "react-router-dom";
+import { GLOBAL_CONTEXT } from "../../layouts/AppLayout";
 
 const ProductCard = ({ product, index }) => {
   const {
@@ -11,6 +12,7 @@ const ProductCard = ({ product, index }) => {
     productPrice,
     productStock,
   } = product;
+  const { user } = useContext(GLOBAL_CONTEXT);
   return (
     <article
       className={`card border h-[30rem] relative overflow-hidden shadow-xl duration-500 text-white ${
@@ -27,7 +29,7 @@ const ProductCard = ({ product, index }) => {
         </h2>
         <div className="flex justify-between items-center">
           <h2 className="card-title">
-            Price:<span className="font-[500]">${productPrice}</span>
+            Price:<span className="font-[500]">৳{productPrice}</span>
           </h2>
           <h2 className="card-title">
             Stock:<span className="font-[500]">{productStock}</span>
@@ -35,12 +37,14 @@ const ProductCard = ({ product, index }) => {
         </div>
 
         <div className="card-actions justify-end pt-4">
-          <Link
-            to={`/product/${_id}`}
-            className="btn btn-outline border-2 border-[#EBA83A] hover:bg-[#EBA83A] hover:border-[#EBA83A] text-[#EBA83A] font-extrabold tracking-wider detailButton"
-          >
-            Order Now
-          </Link>
+          {user?.role !== "admin" && (
+            <Link
+              to={`/product/${_id}`}
+              className="btn btn-outline border-2 border-[#EBA83A] hover:bg-[#EBA83A] hover:border-[#EBA83A] text-[#EBA83A] font-extrabold tracking-wider detailButton"
+            >
+              Order Now
+            </Link>
+          )}
         </div>
       </div>
     </article>

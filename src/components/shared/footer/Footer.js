@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import logo from "../../../assets/logeoWhite.png";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,24 +10,46 @@ const Footer = () => {
         <div>
           <img src={logo} className="w-[100px]" alt="" />
           <p>
-            ACME Industries Ltd.
+            WheelDeals Ltd.
             <br />
-            Providing reliable tech since 1992
+            Providing reliable service since 2022
           </p>
         </div>
         <div>
-          <span className="font-bold text-xl text-[#EBA83A]">Services</span>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <span className="font-bold text-xl text-[#EBA83A]">Brands</span>
+          <a
+            target="__blank"
+            href="https://www.suzuki.com.bd/"
+            className="link link-hover"
+          >
+            Suzuki
+          </a>
+          <a
+            target="__blank"
+            href="https://www.lifanmotos.net/"
+            className="link link-hover"
+          >
+            Lifan
+          </a>
+          <a
+            target="__blank"
+            href="https://zontesbangladesh.com/"
+            className="link link-hover"
+          >
+            Zontes
+          </a>
         </div>
         <div>
           <span className="font-bold text-xl text-[#EBA83A]">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <NavLink to="/home" className="link link-hover">
+            Home
+          </NavLink>
+          <NavLink to="/product" className="link link-hover">
+            Product
+          </NavLink>
+          <NavLink to="/contact" className="link link-hover">
+            Contact
+          </NavLink>
         </div>
         <div>
           <span className="font-bold text-xl text-[#EBA83A]">Legal</span>
@@ -40,9 +63,13 @@ const Footer = () => {
         <div>
           <p>
             Copyright © 2023 - All right reserved by{" "}
-            <span className="text-[#EBA83A] font-semibold">
+            <a
+              target="__blank"
+              href="https://mushfique-yeasir.netlify.app/"
+              className="text-[#EBA83A] font-semibold"
+            >
               Mushfique Yeasir
-            </span>
+            </a>
           </p>
         </div>
       </section>
