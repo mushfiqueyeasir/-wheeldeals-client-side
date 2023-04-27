@@ -1,48 +1,20 @@
-.productCard{
-    cursor: pointer;
-
-}
-.productCard:hover{
-    background-color: #EBA83A;
-    color: white; 
-}
-
-.productCard:hover .badge{
-    background-color: white;
-    color: black; 
-}
-
-.productCard:hover .detailButton{
-    border-color: #313641;
-    color: black; 
-}
 
 
-.productCardReverse{
-    background-color: #EBA83A;
-    color: white; 
-    cursor: pointer;
-}
-.productCardReverse .badge{
-    background-color: white;
-    color: black; 
-}
-.productCardReverse .detailButton{
-    border-color: #313641;
-    color: black; 
-}
+.displayProduct {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    object-fit: cover;   
+  }
 
-.productCardReverse:hover{
-    background-color: white;
-    color: black; 
-}
 
-.productCardReverse:hover .badge{
-    background-color: #EBA83A;
-    color: white; 
-}
-
-.productCardReverse:hover .detailButton{
-    border-color: #EBA83A;
-    color: #EBA83A; 
-}
+.cardImage {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    object-fit: cover; 
+    filter: brightness(0.45);
+  
+  }

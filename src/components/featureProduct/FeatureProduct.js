@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import ProductCard from "../productCard/ProductCard";
+import { GLOBAL_CONTEXT } from "../../layouts/AppLayout";
 
-const FeatureProduct = ({ product }) => {
+const FeatureProduct = () => {
+  const { product } = useContext(GLOBAL_CONTEXT);
   return (
     <section className="container mx-auto py-10 px-2">
       <h1 className="text-[#EBA83A] font-[900] text-3xl lg:text-4xl">
@@ -12,9 +14,9 @@ const FeatureProduct = ({ product }) => {
       </h1>
 
       <div className="pt-6 grid grid-cols-1 md:grid-cls-2 lg:grid-cols-3 gap-4">
-        <ProductCard index={0} />
-        <ProductCard />
-        <ProductCard />
+        {product.slice(0, 3).map((item, index) => (
+          <ProductCard key={item._id} index={index} product={item} />
+        ))}
       </div>
     </section>
   );

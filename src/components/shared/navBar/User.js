@@ -17,13 +17,22 @@ const User = () => {
       </label>
       <ul
         tabIndex={0}
-        className="menu menu-compact dropdown-content p-2 shadow bg-black text-white rounded-box w-[8rem]"
+        className="menu menu-compact dropdown-content  shadow bg-black text-white rounded-box w-[8rem]"
       >
-        <li>
-          <NavLink to="/dashboard">Dashboard</NavLink>
+        <li className="py-2 flex justify-center items-center font-bold">
+          <NavLink
+            to={`/dashboard/${user.role === "admin" ? "analytics" : "profile"}`}
+            className="active:bg-black"
+          >
+            Dashboard
+          </NavLink>
         </li>
         <li>
-          <button type="button" onClick={handleLogout}>
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="bg-[#EBA83A] text-white text-base font-semibold py-1  btn-block  rounded-b-xl flex justify-center"
+          >
             Logout
           </button>
         </li>

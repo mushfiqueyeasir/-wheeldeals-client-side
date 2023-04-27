@@ -5,17 +5,15 @@ const useSession = () => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
   const [refetchData, setRefetchData] = useState(false);
-  const requestOptions = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + getToken(),
-    },
-  };
-  const url = `${process.env.REACT_APP_API_URL}/user/login`;
 
   useEffect(() => {
-    fetch(url, requestOptions)
+    fetch(`${process.env.REACT_APP_API_URL}/user/login`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + getToken(),
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setUser(data.data);

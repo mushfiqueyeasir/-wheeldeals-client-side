@@ -1,13 +1,24 @@
 import { toast } from "react-toastify";
+import { getToken } from "../utility/token";
 
-export const update = ({ id, data, refetch, userRefetch, rsvp, loading }) => {
+export const update = ({
+  endPoint,
+  id,
+  data,
+  refetch,
+  userRefetch,
+  loading,
+}) => {
   const requestOptions = {
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + getToken(),
+    },
     body: JSON.stringify(data),
   };
 
-  fetch(`${process.env.REACT_APP_API_URL}/${id}`, requestOptions)
+  fetch(`${process.env.REACT_APP_API_URL}/${endPoint}/${id}`, requestOptions)
     .then((response) => {
       if (response.ok) {
         if (refetch) {
@@ -16,18 +27,15 @@ export const update = ({ id, data, refetch, userRefetch, rsvp, loading }) => {
         if (userRefetch) {
           userRefetch();
         }
-        toast.success(
-          `${rsvp ? "Event Reserved" : "Event Updated"} Successfully`,
-          {
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          }
-        );
+        toast.success(`Update Successful!`, {
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       } else {
         throw new Error("Network response was not ok.");
       }

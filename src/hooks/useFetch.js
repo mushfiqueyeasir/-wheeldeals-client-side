@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getToken } from "../utility/token";
 
 const useFetch = ({ api, parameter }) => {
   const [data, setData] = useState([]);
@@ -15,7 +16,13 @@ const useFetch = ({ api, parameter }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(uri);
+        const response = await fetch(uri, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + getToken(),
+          },
+        });
         const responseData = await response.json();
         setData(responseData.data);
         setLoading(false);

@@ -1,19 +1,26 @@
 import { toast } from "react-toastify";
+import { getToken } from "../utility/token";
 
 export const create = ({
   endPoint,
   data,
   refetch,
-  userRefetch,
+  additionalRefetch,
+  additionalRefetch2,
+  additionalRefetch3,
   reset,
   loading,
   imageThumbReset,
   fileNameReset,
+  message,
 }) => {
-  loading(true);
+  if (loading) {
+    loading(true);
+  }
 
   const headers = {
     "Content-Type": "application/json",
+    Authorization: "Bearer " + getToken(),
   };
 
   fetch(`${process.env.REACT_APP_API_URL}/${endPoint}`, {
@@ -29,7 +36,10 @@ export const create = ({
       return response.json();
     })
     .then((response) => {
-      toast.success("Event Created!", {
+      if (reset) {
+        reset();
+      }
+      toast.success(message, {
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -40,7 +50,6 @@ export const create = ({
       });
     })
     .catch((error) => {
-      console.log("Error:", error);
       toast.error(error.message, {
         autoClose: 5000,
         hideProgressBar: false,
@@ -52,14 +61,17 @@ export const create = ({
       });
     })
     .finally(() => {
-      if (reset) {
-        reset();
-      }
       if (refetch) {
         refetch();
       }
-      if (userRefetch) {
-        userRefetch();
+      if (additionalRefetch) {
+        additionalRefetch();
+      }
+      if (additionalRefetch2) {
+        additionalRefetch2();
+      }
+      if (additionalRefetch3) {
+        additionalRefetch3();
       }
       if (imageThumbReset) {
         imageThumbReset(null);

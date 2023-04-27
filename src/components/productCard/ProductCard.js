@@ -1,44 +1,46 @@
 import React from "react";
 import "./ProductCard.css";
+import { Link } from "react-router-dom";
 
-const ProductCard = ({ index }) => {
+const ProductCard = ({ product, index }) => {
+  const {
+    _id,
+    productName,
+    productBrand,
+    productImage,
+    productPrice,
+    productStock,
+  } = product;
   return (
     <article
-      className={`card border shadow-xl duration-500 ${
+      className={`card border h-[30rem] relative overflow-hidden shadow-xl duration-500 text-white ${
         index === 0 ? "productCardReverse" : "productCard"
       }`}
     >
-      <figure>
-        <img
-          src="https://www.suzuki.com.bd/images/bike_models/preview_images/bike_preview_image__166788186512183.png"
-          alt="bike"
-        />
+      <figure className="">
+        <img src={productImage} alt="bike" className="displayProduct" />
       </figure>
-      <div className="card-body px-4 pb-3">
-        <h2 className="card-title">
-          Bike Model
-          <div className="badge bg-[#EBA83A] border-0  p-3">Bike Brand</div>
+      <div className="absolute bottom-0 px-4 py-3 z-50 bg-[#020000c4] w-full">
+        <h2 className="card-title capitalize">
+          {productName}
+          <div className="badge bg-[#EBA83A] border-0  p-3">{productBrand}</div>
         </h2>
-        <p>
-          Bike Details blablablablablalballabalbla blablablablablalballabalbla
-          blablablablablalballabalbla
-        </p>
         <div className="flex justify-between items-center">
           <h2 className="card-title">
-            Price:<span className="font-[500]">$540</span>
+            Price:<span className="font-[500]">${productPrice}</span>
           </h2>
           <h2 className="card-title">
-            Stock:<span className="font-[500]">40</span>
+            Stock:<span className="font-[500]">{productStock}</span>
           </h2>
         </div>
 
         <div className="card-actions justify-end pt-4">
-          <button className="btn bg-black border-black hover:bg-[#181818f6]">
+          <Link
+            to={`/product/${_id}`}
+            className="btn btn-outline border-2 border-[#EBA83A] hover:bg-[#EBA83A] hover:border-[#EBA83A] text-[#EBA83A] font-extrabold tracking-wider detailButton"
+          >
             Order Now
-          </button>
-          <button className="btn btn-outline border-2 border-[#EBA83A] hover:bg-[#EBA83A] hover:border-[#EBA83A] text-[#EBA83A] font-extrabold tracking-wider detailButton">
-            Details
-          </button>
+          </Link>
         </div>
       </div>
     </article>

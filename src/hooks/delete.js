@@ -1,15 +1,21 @@
 import { toast } from "react-toastify";
-// import { getToken } from "../utility/Constant";
+import { getToken } from "../utility/token";
 
-export const deleteItem = ({ id, refetch, userRefetch }) => {
+export const deleteItem = ({
+  api,
+  id,
+  refetch,
+  additionalRefetch,
+  additionalRefetch2,
+}) => {
   const requestOptions = {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      // Authorization: "Bearer " + getToken(),
+      Authorization: "Bearer " + getToken(),
     },
   };
-  fetch(`${process.env.REACT_APP_API_URL}/${id}`, requestOptions)
+  fetch(`${process.env.REACT_APP_API_URL}/${api}/${id}`, requestOptions)
     .then(async (response) => {
       const isJson = response.headers
         .get("content-type")
@@ -25,10 +31,13 @@ export const deleteItem = ({ id, refetch, userRefetch }) => {
         if (refetch) {
           refetch();
         }
-        if (userRefetch) {
-          userRefetch();
+        if (additionalRefetch) {
+          additionalRefetch();
         }
-        toast.info("Event Deleted", {
+        if (additionalRefetch2) {
+          additionalRefetch2();
+        }
+        toast.info("Deleted", {
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,

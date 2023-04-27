@@ -22,7 +22,7 @@ const NavBar = () => {
     <div
       className={`${
         navbar && "bg-black shadow-md"
-      } sticky top-0 z-50 duration-500`}
+      } sticky top-0 z-[100] duration-500`}
     >
       <div className="navbar container mx-auto ">
         <div className="navbar-start">
