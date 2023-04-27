@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>WheelDeals E-commerce App</title>
-  </head>
+
   <body>
     <a href="https://wheeldeals.netlify.app/"><h1>WheelDeals</h1> </a>
+    <h1><a href="https://wheeldeals.netlify.app/">Live Link</a></h1>
+     <h1><a href="https://wheeldeals-server-side.vercel.app/">Server Live Link</a></h1>
+       <h1><a href="https://github.com/mushfiqueyeasir/wheeldeals-server-side">Server Repository Link</a></h1>
     <h2>Table of Contents</h2>
     <ul>
       <li><a href="#installation">Installation</a></li>
